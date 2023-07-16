@@ -30,7 +30,7 @@ This project is a book cart application built using the Quarkus framework. It co
 1. Clone the repository:
 
    ```bash
-   git clone <>
+   git clone <https://github.com/KumarHinesh/book-store.git>
 
 
 cd book-cart-app
