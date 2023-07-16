@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  book-cart:
+    container_name: book-cart
+    image: book/store:1.0.0-SNAPSHOT
+    ports:
+      - "8081:8081"
+    environment:
+      MP_JWT_VERIFY_PUBLICKEY_LOCATION: /jwt/publickey
+    volumes:
+      - type: bind
+        source: ./jwt
+        target: /jwt
+  jwt-security:
+    container_name: jwt-security
+    image: security/jwt:1.0.0-SNAPSHOT
+    ports:
+      - "8082:8082"
+    environment:
+      SMALLRYE_JWT_SIGN_KEY_LOCATION: /jwt/privatekey.pem
+    volumes:
+      - type: bind
+        source: ./jwt
+        target: /jwt
